@@ -152,6 +152,17 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertFilePresent(tempdir, 'TV-20101028-2220-5801.h264.mp4', remove_after_check = True)
         os.rmdir(tempdir)
 
+    def test_saveAndLoadTimeInFile(self):
+        dateFile = self.__create_tempfile(datetime.strftime(datetime(2010, 10, 27, 0, 0, 0), '%c'))
+        
+        with open(dateFile.name, 'r') as f:
+            timestamp = datetime.strptime(f.read(), '%c')
+            
+        self.assertEqual(timestamp, datetime(2010, 10, 27, 0, 0, 0))
+    def test_createMd5Hash(self):
+        import hashlib
+        self.assertEqual( hashlib.sha224("http://some.domain/rss.xml").hexdigest(), '28dbff3e80675af61e810c911d19ce690d2497a03f64d47f5559199e')
+
 if __name__ == '__main__':
     import logging
     logging.basicConfig(filename = 'test_debug.log', level=logging.DEBUG)
