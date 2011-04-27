@@ -2,13 +2,12 @@ import feedparser
 import os
 import re
 from threading import Thread, Event
-import urllib2
+from urllib2 import urlopen
 from datetime import datetime
 from etacalculator import EtaCalculator
 import time
 import logging
 import logging.config
-import sys
 
 
 class Vodcast:
@@ -85,7 +84,7 @@ class VodcastDownloader:
         self.log = logging.getLogger('VodcastDownloader')
 
     def _remote_get_video(self, url):
-        return urllib2.urlopen(url)
+        return urlopen(url)
 
     def __copy_stream_to_target(self, stream, target_filename):
         if(os.path.exists(target_filename)):
