@@ -5,11 +5,15 @@ from rss.rss_feed_downloader import VodcastDownloadManager
 from datetime import datetime, timedelta
 import hashlib
 from os import path
+from urlparse import urlparse
 
-LAST_FETCHED_FILE = 'last_feed_access_%s.timestamp'
+LAST_FETCHED_FILE_TEMPLATE = 'last_feed_access_%(hostname)s_%(hash)s.timestamp'
 
 def _create_fetch_info_path(base, identity):
-    return path.join(base, LAST_FETCHED_FILE % hashlib.sha224(identity).hexdigest())
+    return path.join(base, LAST_FETCHED_FILE_TEMPLATE % {
+                                                'hash' : hashlib.sha224(identity).hexdigest(),
+                                                'hostname' : urlparse(identity).hostname
+                                                })
 
 def _determineReferenceDate(download_directory, day_offset, identity):
     if not day_offset:

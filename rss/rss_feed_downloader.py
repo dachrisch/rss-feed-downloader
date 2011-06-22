@@ -104,7 +104,6 @@ class VodcastDownloader:
         self.log.debug('checking if [%s] should be downloaded (> %s): %s', vodcast, reference_date, vodcast.updated > reference_date)
         return vodcast.updated > reference_date
 
-
     def _create_target_filename(self, vodcast):
         target_filename = os.path.join(self.basedir, vodcast.local_filename)
         return target_filename

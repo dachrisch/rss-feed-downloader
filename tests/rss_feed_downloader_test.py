@@ -150,21 +150,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
     def test_create_md5_hash(self):
         import hashlib
         self.assertEqual( hashlib.sha224("http://some.domain/rss.xml").hexdigest(), '28dbff3e80675af61e810c911d19ce690d2497a03f64d47f5559199e')
-    def test_alternative_url_fetching_using_library(self):
-        testfile = self.__create_tempfile('this is test content' * 4000000)
-        def report_hook_test(block_number, block_size, total_size):
-
-            if block_number:
-                report_hook_test.eta.update(block_size * block_number)
-            else:
-                from rss.etacalculator import EtaCalculator
-                report_hook_test.eta = EtaCalculator(total_size)
-
-            print 'report: %d, %d, %d - eta: %d' % (block_number, block_size, total_size, report_hook_test.eta.eta)
-        urlretrieve(testfile.name, '/tmp/google_fetch', report_hook_test)
-        with open('/tmp/google_fetch', 'r') as fetchfile:
-            content = fetchfile.read()
-        assert 'this is test content' in content
 
 if __name__ == '__main__':
     import logging
