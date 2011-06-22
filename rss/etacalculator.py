@@ -41,7 +41,7 @@ class EtaCalculator(object):
             return
 
         delta_time = self.points[-1][0] - self.points[0][0]
-        delta_work = cursize
+        delta_work = self.points[-1][1] - self.points[0][1]
         if delta_work == 0.0 or delta_time == 0.0:
             return 
 
