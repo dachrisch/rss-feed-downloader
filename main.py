@@ -4,6 +4,7 @@ from optparse import OptionParser
 from rss.rss_feed_downloader import VodcastDownloadManager
 from datetime import datetime, timedelta
 import hashlib
+from os import path
 
 LAST_FETCHED_FILE='last_feed_access_%s.timestamp'
 
@@ -24,6 +25,12 @@ def _determineReferenceDate(day_offset, identity):
 def _saveLastFetchedTimestamp(identity):
     with open(LAST_FETCHED_FILE % hashlib.sha224(identity).hexdigest(), 'w') as lastFetched:
         lastFetched.write(datetime.strftime(datetime.now(), '%c'))
+        
+def _checked_load_logging_config(config_path):
+    expanded_config_path = path.expanduser(config_path)
+    if not path.exists(expanded_config_path):
+        raise Exception("failed to locate a logging configuration at [%s]. please check the location" % expanded_config_path)
+    logging.config.fileConfig(expanded_config_path)
         
 def main(args):
     parser = OptionParser()
@@ -47,9 +54,9 @@ def main(args):
         parser.error('url and directory are required')
 
     if options.verbose > 1:
-        logging.config.fileConfig("/home/cda/.python/logging_debug.conf")
+        _checked_load_logging_config("~/.python/logging_debug.conf")
     elif options.verbose:
-        logging.config.fileConfig("/home/cda/.python/logging.conf")
+        _checked_load_logging_config("~/.python/logging.conf")
     else:
         logging.basicConfig(stream=sys.stdout, level=logging.WARN)
 
