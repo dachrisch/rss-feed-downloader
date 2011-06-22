@@ -24,3 +24,7 @@ dependencies
 
 feedparser - parsing rss feeds - www.feedparser.org
  
+restrictions
+------------
+
+currently only runs in *nix like environments (Linux, cygwin, etc.)

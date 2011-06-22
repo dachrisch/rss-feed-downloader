@@ -53,9 +53,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 10, 53, 49))
         
     def test_givenUrlWhenPointingToLocalResourceThenStreamWithContentWillBeReturned(self):
-        entries = self.rss_feed.entries
-        vodcast = parse_video_item(entries[0])
-
         vodcast_downloader = VodcastDownloader()
         
         testfile = self.__create_tempfile('for testing purpose')

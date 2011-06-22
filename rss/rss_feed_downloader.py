@@ -7,8 +7,6 @@ from datetime import datetime
 from etacalculator import EtaCalculator
 import time
 import logging
-import logging.config
-
 
 class Vodcast:
     def __init__(self, item):
