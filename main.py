@@ -6,12 +6,15 @@ from datetime import datetime, timedelta
 import hashlib
 from os import path
 
-LAST_FETCHED_FILE='last_feed_access_%s.timestamp'
+LAST_FETCHED_FILE = 'last_feed_access_%s.timestamp'
 
-def _determineReferenceDate(day_offset, identity):
+def _create_fetch_info_path(base, identity):
+    return path.join(base, LAST_FETCHED_FILE % hashlib.sha224(identity).hexdigest())
+
+def _determineReferenceDate(download_directory, day_offset, identity):
     if not day_offset:
         try:
-            with open(LAST_FETCHED_FILE % hashlib.sha224(identity).hexdigest(), 'r') as lastFetched:
+            with open(_create_fetch_info_path(download_directory, identity), 'r') as lastFetched:
                 reference_date = datetime.strptime(lastFetched.read(), '%c')
         except IOError, e:
             print 'failed to read last updated timestamp. falling back to day_offset: %s' % e
@@ -22,8 +25,8 @@ def _determineReferenceDate(day_offset, identity):
             
     return reference_date
 
-def _saveLastFetchedTimestamp(identity):
-    with open(LAST_FETCHED_FILE % hashlib.sha224(identity).hexdigest(), 'w') as lastFetched:
+def _saveLastFetchedTimestamp(download_directory, identity):
+    with open(_create_fetch_info_path(download_directory, identity), 'w') as lastFetched:
         lastFetched.write(datetime.strftime(datetime.now(), '%c'))
         
 def _checked_load_logging_config(config_path):
@@ -39,10 +42,10 @@ def main(args):
     parser.add_option("-d", "--download-directory", dest="download_directory",
                       help="save vodcasts in DIR", metavar="DIR")
     parser.add_option("-o", "--day-offset", dest="day_offset",
-                      help="only download vodcasts DAYS old or younger", 
+                      help="only download vodcasts DAYS old or younger",
                       metavar="DAYS", type="int", default=None)
     parser.add_option("-t", "--threads", dest="threads",
-                      help="how many THREADS to use for download", 
+                      help="how many THREADS to use for download",
                       metavar="THREADS", type="int", default=1)
     parser.add_option("-v", "--verbose",
                       action="count", dest="verbose",
@@ -52,6 +55,9 @@ def main(args):
 
     if not (options.rss_url and options.download_directory):
         parser.error('url and directory are required')
+        
+    if not path.isdir(options.download_directory):
+        parser.error('[%s] is not a directory' % options.download_directory)
 
     if options.verbose > 1:
         _checked_load_logging_config("~/.python/logging_debug.conf")
@@ -62,9 +68,9 @@ def main(args):
 
     vdm = VodcastDownloadManager(options.rss_url, options.download_directory, options.threads)
 
-    reference_date = _determineReferenceDate(options.day_offset, options.rss_url)
+    reference_date = _determineReferenceDate(options.download_directory, options.day_offset, options.rss_url)
     vdm.download_all_newer(reference_date)
-    _saveLastFetchedTimestamp(options.rss_url)
+    _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
 
 
 if __name__ == '__main__':
