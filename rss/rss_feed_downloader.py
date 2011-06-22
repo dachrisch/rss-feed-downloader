@@ -1,12 +1,11 @@
 import feedparser
 import os
-import re
 from threading import Thread, Event
-from urllib2 import urlopen
 from datetime import datetime
 from etacalculator import EtaCalculator
 import time
 import logging
+from urllib import urlretrieve
 
 class Vodcast:
     def __init__(self, item):
@@ -34,26 +33,38 @@ class Vodcast:
 
 
 class DownloadProgressThread(Thread):
-    def __init__(self, name, total, interval=1, *args, **kwargs):
+    def __init__(self, name, interval=1, *args, **kwargs):
         Thread.__init__(self, name=name, *args, **kwargs)
         self.log = logging.getLogger('DownloadProgressThread')
         self.actual = 0
-        self.total = total
         self.should_finish = Event()
         self.interval = interval
-        self.eta_calculator = EtaCalculator(self.total)
         self.last_actual_kb = -100
+        
+    def report_hook_test(self, block_number, block_size, total_size):
 
-    def eat(self, count):
+            if block_number:
+                self._eat(block_size)
+                self._stop_if_saturated()
+            else:
+                self._start_reporting(total_size)
+                
+    def _stop_if_saturated(self):
+        if self.actual >= self.total:
+            self._stop_reporting()
+
+    def _eat(self, count):
         self.log.debug('eating %d bytes [%d/%d]' % (count, self.actual, self.total))
         self.actual += count
         self.eta_calculator.update(self.actual)
 
-    def start_reporting(self):
+    def _start_reporting(self, total):
+        self.total = total
         self.should_finish.clear()
+        self.eta_calculator = EtaCalculator(self.total)
         self.start()
 
-    def stop_reporting(self):
+    def _stop_reporting(self):
         self.should_finish.set()
 
     def run(self):
@@ -75,55 +86,32 @@ class DownloadProgressThread(Thread):
 
 
 class VodcastDownloader:
-    chunk_size = 100 * 1024
-
     def __init__(self, basedir=None):
         self.basedir = basedir
         self.log = logging.getLogger('VodcastDownloader')
 
-    def _remote_get_video(self, url):
-        return urlopen(url)
-
-    def __copy_stream_to_target(self, stream, target_filename):
+    def __copy_stream_to_target(self, url, target_filename):
         if(os.path.exists(target_filename)):
             self.log.warn('skipping already existing file [%s]' % target_filename)
             return
 
-        m = re.search('Content-Length: (\d+)', str(stream.info()))
-        if m:
-            content_length = int(m.group(1))
-        else:
-            content_length = -1
-            self.log.error('could not find "Content-Length" header. Is is really a video-stream? [%s]' % stream.info())
-
-        self.log.debug('downloading [%s] (%d bytes) to [%s].', stream, content_length, target_filename)
-        actual_read = DownloadProgressThread(target_filename, content_length)
-        actual_read.start_reporting()
-
-        target = open(target_filename, 'wb')
-        try:
-            with target:
-                content = stream.read(VodcastDownloader.chunk_size)
-                while content:
-                    target.write(content)
-                    actual_read.eat(len(content))
-                    content = stream.read(VodcastDownloader.chunk_size)
-            stream.close()
-        except:
-            os.remove(target_filename)
-            raise
-        finally:
-            actual_read.stop_reporting()
+        self.log.debug('downloading [%s] to [%s].', url, target_filename)
+        
+        download_reporter = DownloadProgressThread(target_filename)
+        urlretrieve(url, target_filename, download_reporter.report_hook_test)
 
     def should_be_downloaded(self, vodcast, reference_date):
         self.log.debug('checking if [%s] should be downloaded (> %s): %s', vodcast, reference_date, vodcast.updated > reference_date)
         return vodcast.updated > reference_date
 
-    def download(self, vodcast):
-        stream = self._remote_get_video(vodcast.url)
 
+    def _create_target_filename(self, vodcast):
         target_filename = os.path.join(self.basedir, vodcast.local_filename)
-        self.__copy_stream_to_target(stream, target_filename)
+        return target_filename
+
+    def download(self, vodcast):
+        target_filename = self._create_target_filename(vodcast)
+        self.__copy_stream_to_target(vodcast.url, target_filename)
         return target_filename
 
 

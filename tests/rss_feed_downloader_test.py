@@ -51,17 +51,7 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertEqual(vodcast.url, 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4')
         self.assertEqual(vodcast.local_filename, 'TV-20101023-2220-5801.h264.mp4')
         self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 10, 53, 49))
-        
-    def test_givenUrlWhenPointingToLocalResourceThenStreamWithContentWillBeReturned(self):
-        vodcast_downloader = VodcastDownloader()
-        
-        testfile = self.__create_tempfile('for testing purpose')
 
-        stream = vodcast_downloader._remote_get_video('file://' + testfile.name)
-        
-        self.assertEqual(stream.read(), 'for testing purpose')
-        os.remove(testfile.name)
-        
     def test_givenUrlPointingToLocalResourceWhenDownloadedThenContentWillBeStored(self):
         entries = self.rss_feed.entries
         vodcast = parse_video_item(entries[0])
