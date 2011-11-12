@@ -29,13 +29,16 @@ a logging configuration in '~/.python/logging.conf'
 example:
 
     [formatters]
-    keys: detailed,simple
+    keys: detailed,simple,evenSimpler
      
     [handlers]
     keys: console
      
     [loggers]
-    keys: root
+    keys: root,report
+
+    [formatter_evenSimpler]
+    format: %(message)s
      
     [formatter_simple]
     format: %(name)s:%(levelname)s:  %(message)s
@@ -45,8 +48,13 @@ example:
      
     [handler_console]
     class: StreamHandler
-    args: []
+    args: [sys.out]
     formatter: simple
+
+    [handler_report]
+    class: FileHandler
+    args: ['/path_to_logfile', 'a']
+    formatter: evenSimpler
     
     [logger_root]
     level: INFO
