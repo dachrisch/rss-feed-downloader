@@ -1,6 +1,5 @@
 import feedparser
 import os
-from threading import Thread, Event
 from datetime import datetime
 from etacalculator import EtaCalculator
 import time
@@ -14,6 +13,8 @@ class Vodcast:
         self.local_filename = self._generate_local_filename(self.url)
 
         self.updated = datetime.fromtimestamp(time.mktime(item.updated_parsed))
+        
+        self.description = item.description
 
         self._underlying_item = item
 
@@ -32,27 +33,24 @@ class Vodcast:
         return '%s(name=%s, url=%s, updated=%s)' % (self.__class__, self.local_filename, self.url, self.updated)
 
 
-class DownloadProgressThread(Thread):
+class DownloadProgressHook:
     def __init__(self, name, interval=1, *args, **kwargs):
-        Thread.__init__(self, name=name, *args, **kwargs)
-        self.log = logging.getLogger('DownloadProgressThread')
+        self.log = logging.getLogger('DownloadProgressHook')
         self.actual = 0
-        self.should_finish = Event()
         self.interval = interval
         self.last_actual_kb = -100
         
-    def report_hook_test(self, block_number, block_size, total_size):
+    def report_hook(self, block_number, block_size, total_size):
 
             if block_number:
                 self._eat(block_size)
-                self._stop_if_saturated()
             else:
                 self._start_reporting(total_size)
                 
-    def _stop_if_saturated(self):
-        if self.actual >= self.total:
-            self._stop_reporting()
-
+            if time.time() - self.last_report > self.interval:
+                self._log_report()
+                self.last_report = time.time()
+                
     def _eat(self, count):
         self.log.debug('eating %d bytes [%d/%d]' % (count, self.actual, self.total))
         self.actual += count
@@ -60,17 +58,8 @@ class DownloadProgressThread(Thread):
 
     def _start_reporting(self, total):
         self.total = total
-        self.should_finish.clear()
         self.eta_calculator = EtaCalculator(self.total)
-        self.start()
-
-    def _stop_reporting(self):
-        self.should_finish.set()
-
-    def run(self):
-        while not self.should_finish.is_set():
-            self._log_report()
-            self.should_finish.wait(self.interval)
+        self.last_report = time.time()
 
     def _log_report(self):
         percentage_done = self.actual / float(self.total) * 100.0
@@ -89,6 +78,7 @@ class VodcastDownloader:
     def __init__(self, basedir=None):
         self.basedir = basedir
         self.log = logging.getLogger('VodcastDownloader')
+        self.report_log = logging.getLogger('report')
 
     def __copy_stream_to_target(self, url, target_filename):
         if(os.path.exists(target_filename)):
@@ -97,8 +87,8 @@ class VodcastDownloader:
 
         self.log.debug('downloading [%s] to [%s].', url, target_filename)
         
-        download_reporter = DownloadProgressThread(target_filename)
-        urlretrieve(url, target_filename, download_reporter.report_hook_test)
+        download_reporter = DownloadProgressHook(target_filename)
+        urlretrieve(url, target_filename, download_reporter.report_hook)
 
     def should_be_downloaded(self, vodcast, reference_date):
         self.log.debug('checking if [%s] should be downloaded (> %s): %s', vodcast, reference_date, vodcast.updated > reference_date)
@@ -110,6 +100,8 @@ class VodcastDownloader:
 
     def download(self, vodcast):
         target_filename = self._create_target_filename(vodcast)
+        vodcast.target_filename = target_filename
+        self.report_log.info('%(target_filename)s(%(updated)s) - %(url)s - %(description)s' % vodcast.__dict__)
         self.__copy_stream_to_target(vodcast.url, target_filename)
         return target_filename
 
@@ -117,7 +109,7 @@ class VodcastDownloader:
 class VodcastDownloadManager:
     def __init__(self, rss_feed_or_url, download_dir, threads=1):
         self.downloader = VodcastDownloader(download_dir)
-        self.log = logging.getLogger('VodcastDownloader')
+        self.log = logging.getLogger('DownloadManager')
         self.threads = threads
 
         self.vodcasts = []
