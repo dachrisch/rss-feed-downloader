@@ -24,6 +24,8 @@ class Vodcast:
             return video.href
         if 'video/mpeg' == video.type:
             return video.href
+        if 'video/x-mp4' == video.type:
+            return video.href
         raise Exception('cannot parse url from enclosure [%s]. unknown type: %s' % (video, video.type))
 
     def _generate_local_filename(self, link):
