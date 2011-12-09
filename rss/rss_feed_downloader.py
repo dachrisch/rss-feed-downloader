@@ -139,6 +139,7 @@ class VodcastDownloadManager:
             self.downloader.download(vodcast_to_download)
             counter += 1
         self.log.info('downloaded [%d] vodcasts' % counter)
+        return counter
 
 
 def parse_video_item(item):

@@ -73,6 +73,9 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         os.remove(testfile.name)
         os.rmdir(tempdir)
         
+    def test_givenNoInternetConnectionWhenDownloadingFeedThenTimestampWillNotBeUpdated(self):
+        self.assertEqual(VodcastDownloadManager(None, "").download_all_newer(None), 0)
+        
     def test_givenRssWithVodcastsWhenDownloadingThenOnlyNewFilesWillBeDownloaded(self):
         entries = self.rss_feed.entries
         vodcast = parse_video_item(entries[0])

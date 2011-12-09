@@ -73,8 +73,9 @@ def main(args):
     vdm = VodcastDownloadManager(options.rss_url, options.download_directory, options.threads)
 
     reference_date = _determineReferenceDate(options.download_directory, options.day_offset, options.rss_url)
-    vdm.download_all_newer(reference_date)
-    _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
+    num_updated = vdm.download_all_newer(reference_date)
+    if num_updated > 0:
+        _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
 
 
 if __name__ == '__main__':
