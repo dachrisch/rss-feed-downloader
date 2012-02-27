@@ -12,7 +12,7 @@ class Vodcast:
         self.url = self._parse_video_url(item.enclosures)
         self.local_filename = self._generate_local_filename(self.url)
 
-        self.updated = datetime.fromtimestamp(time.mktime(item.updated_parsed))
+        self.updated = datetime.utcfromtimestamp(time.mktime(item.updated_parsed))
         
         self.description = item.description
 
