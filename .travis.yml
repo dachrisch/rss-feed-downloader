@@ -1,6 +1,7 @@
 language: python
 before_script:
   - sudo pip install nose
+  - sude pip install pytz
 script:
   - nosetests 
 
