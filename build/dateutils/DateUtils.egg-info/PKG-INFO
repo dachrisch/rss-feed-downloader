@@ -1,0 +1,16 @@
+Metadata-Version: 1.0
+Name: DateUtils
+Version: 0.5.1
+Summary: Various utilities for working with datetime objects.
+Home-page: UNKNOWN
+Author: Jeremy Cantrell
+Author-email: jmcantrell@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python

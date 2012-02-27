@@ -1,0 +1,400 @@
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmhkyH2/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmhkyH2/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmhkyH2/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmhkyH2/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpP1P50o/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpg4irEK - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpg4irEK] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpP1P50o/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpjCCcH_/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpjCCcH_/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpjCCcH_/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpjCCcH_/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpkMJYZ7/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpRHgqZ0 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpRHgqZ0] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpkMJYZ7/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpHDzHLe/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpHDzHLe/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpHDzHLe/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpHDzHLe/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoazdn9/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpNgzcS2 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpNgzcS2] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoazdn9/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpxqMdkH/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpxqMdkH/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpxqMdkH/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpxqMdkH/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+INFO:DownloadManager:will download [0] vodcasts updated after [None]
+INFO:DownloadManager:downloaded [0] vodcasts
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpI2xith/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpVYy6hW - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpVYy6hW] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpI2xith/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmp8F5YSU/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmp8F5YSU/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmp8F5YSU/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmp8F5YSU/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+INFO:DownloadManager:will download [0] vodcasts updated after [None]
+INFO:DownloadManager:downloaded [0] vodcasts
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmjefei/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpJFKza6 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpJFKza6] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpmjefei/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpsiNEJM/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpsiNEJM/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpsiNEJM/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpsiNEJM/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+INFO:DownloadManager:will download [0] vodcasts updated after [None]
+INFO:DownloadManager:downloaded [0] vodcasts
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpNKiRjQ/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpZ07llr - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpZ07llr] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpNKiRjQ/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
+INFO:DownloadManager:parsing feed at [<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 one</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101026-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 two</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 27 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101027-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4</link>
+                            </item>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
+                            </item>
+                            </channel></rss>]...
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 26 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=26, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=1, tm_yday=299, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 one', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 one', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4', 'id': u'TV-20101026-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 27 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=27, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=2, tm_yday=300, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 two', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 two', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4', 'id': u'TV-20101027-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)
+DEBUG:DownloadManager:parsing rss item {'updated': u'Tue, 28 Oct 2010 11:53:49 +0200', 'updated_parsed': time.struct_time(tm_year=2010, tm_mon=10, tm_mday=28, tm_hour=9, tm_min=53, tm_sec=49, tm_wday=3, tm_yday=301, tm_isdst=0), 'links': [{'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': u'video/mp4', 'rel': 'enclosure'}, {'href': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'type': 'text/html', 'rel': 'alternate'}], 'title': u'Extra 3 three', 'summary_detail': {'base': u'', 'type': 'text/html', 'value': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'language': None}, 'summary': u'Tatort Taliban; Jasmin trifft: Frau zu Guttenberg', 'guidislink': False, 'title_detail': {'base': u'', 'type': 'text/plain', 'value': u'Extra 3 three', 'language': None}, 'link': u'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4', 'id': u'TV-20101028-2220-5801-V'}
+DEBUG:DownloadManager:parsed vodcast rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)
+INFO:DownloadManager:found 3 vodcast entries.
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101063-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101063-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): False
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)] should be downloaded (> 2010-10-27 00:00:00): True
+INFO:DownloadManager:will download [2] vodcasts updated after [2010-10-27 00:00:00]
+INFO:DownloadManager:[000] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101027-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4, updated=2010-10-27 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoiEB00/TV-20101027-2220-5801.h264.mp4(2010-10-27 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoiEB00/TV-20101027-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:[001] downloading rss.rss_feed_downloader.Vodcast(name=TV-20101028-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4, updated=2010-10-28 10:53:49)...
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoiEB00/TV-20101028-2220-5801.h264.mp4(2010-10-28 10:53:49) - http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4 - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpoiEB00/TV-20101028-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/259]
+INFO:DownloadManager:downloaded [2] vodcasts
+INFO:DownloadManager:parsing feed at [None]...
+INFO:DownloadManager:found 0 vodcast entries.
+INFO:DownloadManager:will download [0] vodcasts updated after [None]
+INFO:DownloadManager:downloaded [0] vodcasts
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-25 11:53:49): True
+DEBUG:VodcastDownloader:checking if [rss.rss_feed_downloader.Vodcast(name=TV-20101023-2220-5801.h264.mp4, url=http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4, updated=2010-10-26 10:53:49)] should be downloaded (> 2010-10-27 11:53:49): False
+INFO:report:/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpGi1p7c/TV-20101023-2220-5801.h264.mp4(2010-10-26 10:53:49) - file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpGpq36R - Tatort Taliban; Jasmin trifft: Frau zu Guttenberg
+DEBUG:VodcastDownloader:downloading [file:///var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpGpq36R] to [/var/folders/_f/gvyyw0m978ncqdfcrhxj2fm00000gn/T/tmpGi1p7c/TV-20101023-2220-5801.h264.mp4].
+DEBUG:DownloadProgressHook:eating 8192 bytes [0/15]
