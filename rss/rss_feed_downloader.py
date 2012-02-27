@@ -9,6 +9,8 @@ import pytz
 import logging
 from urllib import urlretrieve
 
+LOCAL_TIMEZONE = pytz.timezone(datetime.now(tzlocal()).tzname())
+
 class Vodcast:
     def __init__(self, item):
         self.title = item.title
@@ -101,10 +103,9 @@ class VodcastDownloader:
         
         Vodcast dates are assumed to be in UTC (see feedparser._parse_rfc822_date), whereas reference_data is assumed to be in local time
         """
-        timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
-        local_vodcast_date = pytz.utc.localize(vodcast.updated).astimezone(timezone)
+        local_vodcast_date = pytz.utc.localize(vodcast.updated).astimezone(LOCAL_TIMEZONE)
         local_reference_date = reference_date
-        self.log.debug('checking if [%s] should be downloaded (%s > %s): %s (in timezone [%s])', vodcast, local_vodcast_date, local_reference_date, local_vodcast_date > local_reference_date, timezone)
+        self.log.debug('checking if [%s] should be downloaded (%s > %s): %s (in timezone [%s])', vodcast, local_vodcast_date, local_reference_date, local_vodcast_date > local_reference_date, LOCAL_TIMEZONE)
         return local_vodcast_date > local_reference_date
 
     def _create_target_filename(self, vodcast):

@@ -1,8 +1,9 @@
 import logging
 import logging.config
 from optparse import OptionParser
-from rss.rss_feed_downloader import VodcastDownloadManager
+from rss.rss_feed_downloader import VodcastDownloadManager, LOCAL_TIMEZONE
 from datetime import datetime, timedelta
+from dateutil.tz import tzlocal
 import hashlib
 from os import path
 from urlparse import urlparse
@@ -27,11 +28,11 @@ def _determineReferenceDate(download_directory, day_offset, identity):
         reference_date = datetime.now()
         reference_date -= timedelta(days=day_offset)
             
-    return reference_date
+    return LOCAL_TIMEZONE.localize(reference_date)
 
 def _saveLastFetchedTimestamp(download_directory, identity):
     with open(_create_fetch_info_path(download_directory, identity), 'w') as lastFetched:
-        lastFetched.write(datetime.strftime(datetime.now(), '%c'))
+        lastFetched.write(datetime.strftime(datetime.now(tzlocal()), '%c'))
         
 def _checked_load_logging_config(config_path):
     expanded_config_path = path.expanduser(config_path)
