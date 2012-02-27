@@ -1,7 +1,7 @@
 RSS Feed Downloader
 ===================
 
-download vodcasts from RSS feeds [![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
+download vodcasts from RSS feeds
 
 usage
 -----
@@ -19,6 +19,11 @@ python main.py [options]
                             how many THREADS to use for download
       -v, --verbose         print status messages to stdout more verbose
 
+contunious integration
+----------------------
+[![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
+
+CI provided by http://travis-ci.org/
 requirements
 ------------
 
