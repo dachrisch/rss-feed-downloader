@@ -20,7 +20,7 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
                             <item>
                             <title>Extra 3 one</title>
                             <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
-                            <pubDate>Tue, 26 Oct 2010 11:53:49</pubDate>
+                            <pubDate>Tue, 26 Oct 2010 11:53:49 +02:00</pubDate>
                             <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4' type='video/mp4' />
                             <guid isPermaLink='false'>TV-20101023-2220-5801-V</guid>
                             <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4</link>
@@ -159,6 +159,14 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         date = feedparser._parse_date_rfc822('Tue, 28 Oct 2010 11:53:49 +0200')
         assert 1288259629 == timegm(date), timegm(date)
         assert datetime(2010, 10, 28, 9, 53, 49) == datetime.utcfromtimestamp(timegm(date)), datetime.utcfromtimestamp(timegm(date))
+        
+    def test_reference_data_in_local_time(self):
+        entries = self.rss_feed.entries
+        vodcast = parse_video_item(entries[0])
+        
+        vodcast_downloader = VodcastDownloader()
+
+        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, datetime(2010, 10, 25, 11, 53, 49)), vodcast.updated)
 
 if __name__ == '__main__':
     import logging
