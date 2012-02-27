@@ -1,7 +1,7 @@
 RSS Feed Downloader
 ===================
 
-download vodcasts from RSS feeds
+download vodcasts from RSS feeds [![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
 
 usage
 -----
