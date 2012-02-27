@@ -153,6 +153,12 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
     def test_create_md5_hash(self):
         import hashlib
         self.assertEqual( hashlib.sha224("http://some.domain/rss.xml").hexdigest(), '28dbff3e80675af61e810c911d19ce690d2497a03f64d47f5559199e')
+        
+    def test_parse_date(self):
+        from calendar import timegm
+        date = feedparser._parse_date_rfc822('Tue, 28 Oct 2010 11:53:49 +0200')
+        assert 1288259629 == timegm(date), timegm(date)
+        assert datetime(2010, 10, 28, 9, 53, 49) == datetime.utcfromtimestamp(timegm(date)), datetime.utcfromtimestamp(timegm(date))
 
 if __name__ == '__main__':
     import logging
