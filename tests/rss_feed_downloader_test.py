@@ -50,7 +50,7 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertEqual(vodcast.title, 'Extra 3 one')
         self.assertEqual(vodcast.url, 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4')
         self.assertEqual(vodcast.local_filename, 'TV-20101023-2220-5801.h264.mp4')
-        self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 8, 53, 49))
+        self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 9, 53, 49))
 
     def test_givenUrlPointingToLocalResourceWhenDownloadedThenContentWillBeStored(self):
         entries = self.rss_feed.entries
