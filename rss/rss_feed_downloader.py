@@ -3,6 +3,9 @@ import os
 from datetime import datetime
 from etacalculator import EtaCalculator
 import time
+from calendar import timegm
+from dateutil.tz import tzlocal
+import pytz
 import logging
 from urllib import urlretrieve
 
@@ -12,7 +15,7 @@ class Vodcast:
         self.url = self._parse_video_url(item.enclosures)
         self.local_filename = self._generate_local_filename(self.url)
 
-        self.updated = datetime.utcfromtimestamp(time.mktime(item.updated_parsed))
+        self.updated = datetime.utcfromtimestamp(timegm(item.updated_parsed))
         
         self.description = item.description
 
@@ -93,8 +96,16 @@ class VodcastDownloader:
         urlretrieve(url, target_filename, download_reporter.report_hook)
 
     def should_be_downloaded(self, vodcast, reference_date):
-        self.log.debug('checking if [%s] should be downloaded (> %s): %s', vodcast, reference_date, vodcast.updated > reference_date)
-        return vodcast.updated > reference_date
+        """
+        check if a vodcast should be downloaded with respect to a reference date. 
+        
+        Vodcast dates are assumed to be in UTC (see feedparser._parse_rfc822_date), whereas reference_data is assumed to be in local time
+        """
+        timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
+        local_vodcast_date = pytz.utc.localize(vodcast.updated).astimezone(timezone)
+        local_reference_date = reference_date
+        self.log.debug('checking if [%s] should be downloaded (%s > %s): %s (in timezone [%s])', vodcast, local_vodcast_date, local_reference_date, local_vodcast_date > local_reference_date, timezone)
+        return local_vodcast_date > local_reference_date
 
     def _create_target_filename(self, vodcast):
         target_filename = os.path.join(self.basedir, vodcast.local_filename)

@@ -3,8 +3,14 @@ from datetime import datetime
 import os
 import sys
 import unittest
+import pytz
+from dateutil.tz import tzlocal
 sys.path.insert(0,os.path.abspath(__file__+"/../.."))
 from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager
+
+def as_local_datetime(date):
+    local_timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
+    return local_timezone.localize(date)
 
 class VodcastFeedDownloaderTest(unittest.TestCase):
     
@@ -80,8 +86,8 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         
         vodcast_downloader = VodcastDownloader()
 
-        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, datetime(2010, 10, 25, 11, 53, 49)), vodcast.updated)
-        self.assertFalse(vodcast_downloader.should_be_downloaded(vodcast, datetime(2010, 10, 27, 11, 53, 49)), vodcast.updated)
+        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, as_local_datetime(datetime(2010, 10, 25, 11, 53, 49))), vodcast.updated)
+        self.assertFalse(vodcast_downloader.should_be_downloaded(vodcast, as_local_datetime(datetime(2010, 10, 27, 11, 53, 49))), vodcast.updated)
         
     def test_givenFeedWithSomeVodcastsWhenReferenceDateGivenThenAllNewerFeedsWillBeDownloaded(self):
         feed_content = r'''<?xml version='1.0' encoding='UTF-8'?>
@@ -134,7 +140,7 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         
         vodcast_download_manager.downloader._remote_get_video = lambda url: local_file_mock
 
-        vodcast_download_manager.download_all_newer(datetime(2010, 10, 27, 0, 0, 0))
+        vodcast_download_manager.download_all_newer(as_local_datetime(datetime(2010, 10, 27, 0, 0, 0)))
         
         self.assertFileNotPresent(tempdir, 'TV-20101026-2220-5801.h264.mp4')
         self.assertFilePresent(tempdir, 'TV-20101027-2220-5801.h264.mp4', remove_after_check = True)
@@ -164,7 +170,8 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         
         vodcast_downloader = VodcastDownloader()
 
-        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, datetime(2010, 10, 25, 11, 53, 49)), vodcast.updated)
+        self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 9, 53, 49))
+        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, as_local_datetime(datetime(2010, 10, 26, 10, 53, 49))), vodcast.updated)
 
 if __name__ == '__main__':
     import logging
