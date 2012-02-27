@@ -22,7 +22,7 @@ python main.py [options]
 requirements
 ------------
 
-feedparser - parsing rss feeds - www.feedparser.org
+    pip install -r requirements.txt
 
 a logging configuration in '~/.python/logging.conf'
 
