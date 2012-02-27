@@ -24,6 +24,7 @@ contunious integration
 [![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
 
 CI provided by http://travis-ci.org/
+
 requirements
 ------------
 
