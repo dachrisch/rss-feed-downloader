@@ -44,15 +44,13 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertFalse(os.path.exists(expected_filename), '''"%s" exists but it shouldn't''' % expected_filename)
 
     def test_givenRssFeedWhenVodcastFormatThenEntriesWithVideosContainedAreParsed(self):
-        import pytz
-        utc = pytz.timezone('UTC')
         entries = self.rss_feed.entries
         vodcast = parse_video_item(entries[0])
 
         self.assertEqual(vodcast.title, 'Extra 3 one')
         self.assertEqual(vodcast.url, 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4')
         self.assertEqual(vodcast.local_filename, 'TV-20101023-2220-5801.h264.mp4')
-        self.assertEqual(utc.localize(vodcast.updated), datetime(2010, 10, 26, 8, 53, 49, tzinfo = utc))
+        self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 8, 53, 49))
 
     def test_givenUrlPointingToLocalResourceWhenDownloadedThenContentWillBeStored(self):
         entries = self.rss_feed.entries
