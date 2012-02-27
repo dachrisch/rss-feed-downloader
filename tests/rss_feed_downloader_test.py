@@ -6,8 +6,6 @@ import unittest
 sys.path.insert(0,os.path.abspath(__file__+"/../.."))
 from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager
 
-from urllib import urlretrieve
-
 class VodcastFeedDownloaderTest(unittest.TestCase):
     
     def setUp(self):
@@ -20,7 +18,7 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
                             <item>
                             <title>Extra 3 one</title>
                             <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
-                            <pubDate>Tue, 26 Oct 2010 11:53:49 +02:00</pubDate>
+                            <pubDate>Tue, 26 Oct 2010 11:53:49 +0200</pubDate>
                             <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4' type='video/mp4' />
                             <guid isPermaLink='false'>TV-20101023-2220-5801-V</guid>
                             <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101023-2220-5801.h264.mp4</link>
