@@ -171,7 +171,8 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         vodcast_downloader = VodcastDownloader()
 
         self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 9, 53, 49))
-        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, as_local_datetime(datetime(2010, 10, 26, 10, 53, 49))), vodcast.updated)
+        berlin = pytz.timezone("Europe/Berlin")
+        self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, berlin.localize(datetime(2010, 10, 26, 10, 53, 49))), vodcast.updated)
 
 if __name__ == '__main__':
     import logging
