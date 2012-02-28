@@ -19,7 +19,7 @@ python main.py [options]
                             how many THREADS to use for download
       -v, --verbose         print status messages to stdout more verbose
 
-contunious integration
+continuous integration
 ----------------------
 [![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
 
