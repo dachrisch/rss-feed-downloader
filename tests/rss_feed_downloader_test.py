@@ -6,7 +6,8 @@ import unittest
 import pytz
 from dateutil.tz import tzlocal
 sys.path.insert(0,os.path.abspath(__file__+"/../.."))
-from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager
+from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager,\
+    Vodcast
 
 def as_local_datetime(date):
     local_timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
@@ -119,33 +120,32 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
                                 <link>http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4</link>
                             </item>
                             </channel></rss>'''
-        import tempfile
+
+        vodcast_download_manager = VodcastDownloadManager(feed_content, None)
         
-        tempdir = tempfile.mkdtemp()
-        vodcast_download_manager = VodcastDownloadManager(feed_content, tempdir)
-        
-        class FileMock:
-            def __init__(self):
-                self.eof = False
-            def read(self, bytes = None):
-                if self.eof:
-                    return None
-                self.eof = True
-                return 'mock vodcast'
-            def info(self):
-                pass
-            def close(self):
-                pass
-        local_file_mock = FileMock()
-        
-        vodcast_download_manager.downloader._remote_get_video = lambda url: local_file_mock
+        vocast_collector = []
+        downloader = VodcastDownloader(None)
+        downloader.download = lambda vodcast: vocast_collector.append(vodcast)
+        vodcast_download_manager.downloader = downloader
 
         vodcast_download_manager.download_all_newer(as_local_datetime(datetime(2010, 10, 27, 0, 0, 0)))
-        
-        self.assertFileNotPresent(tempdir, 'TV-20101026-2220-5801.h264.mp4')
-        self.assertFilePresent(tempdir, 'TV-20101027-2220-5801.h264.mp4', remove_after_check = True)
-        self.assertFilePresent(tempdir, 'TV-20101028-2220-5801.h264.mp4', remove_after_check = True)
-        os.rmdir(tempdir)
+        class ItemMock:
+            class EnclosureMock:
+                pass
+            def __init__(self, title, date, url):
+                self.title = title 
+                self.updated_parsed = date 
+                self.description = 'unused'
+                enclosure = ItemMock.EnclosureMock()
+                enclosure.type = 'video/mp4'
+                enclosure.href = url
+                self.enclosures = [enclosure]
+        self.assertNotIn(Vodcast(ItemMock('Extra 3 one', (2010, 10, 26, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4'))
+                      , vocast_collector)
+        self.assertIn(Vodcast(ItemMock('Extra 3 two', (2010, 10, 27, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4'))
+                      , vocast_collector)
+        self.assertIn(Vodcast(ItemMock('Extra 3 three', (2010, 10, 28, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4'))
+                      , vocast_collector)
 
     def test_saveAndLoadTimeInFile(self):
         dateFile = self.__create_tempfile(datetime.strftime(datetime(2010, 10, 27, 0, 0, 0), '%c'))

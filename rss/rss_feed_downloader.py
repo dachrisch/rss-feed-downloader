@@ -38,7 +38,14 @@ class Vodcast:
 
     def __str__(self):
         return '%s(name=%s, url=%s, updated=%s)' % (self.__class__, self.local_filename, self.url, self.updated)
-
+    def __repr__(self):
+        return str(self)
+    def __eq__(self, other):
+        same = True
+        same &= self.title == other.title
+        same &= self.url == other.url
+        same &= self.updated == other.updated
+        return same
 
 class DownloadProgressHook:
     def __init__(self, name, interval=1, *args, **kwargs):
@@ -82,10 +89,11 @@ class DownloadProgressHook:
 
 
 class VodcastDownloader:
-    def __init__(self, basedir=None):
+    def __init__(self, basedir=None, url_retriever = urlretrieve):
         self.basedir = basedir
         self.log = logging.getLogger('VodcastDownloader')
         self.report_log = logging.getLogger('report')
+        self.url_retriever = url_retriever
 
     def __copy_stream_to_target(self, url, target_filename):
         if(os.path.exists(target_filename)):
@@ -95,7 +103,7 @@ class VodcastDownloader:
         self.log.debug('downloading [%s] to [%s].', url, target_filename)
         
         download_reporter = DownloadProgressHook(target_filename)
-        urlretrieve(url, target_filename, download_reporter.report_hook)
+        self.url_retriever(url, target_filename, download_reporter.report_hook)
 
     def should_be_downloaded(self, vodcast, reference_date):
         """
