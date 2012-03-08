@@ -13,6 +13,18 @@ def as_local_datetime(date):
     local_timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
     return local_timezone.localize(date)
 
+class ItemMock:
+    class EnclosureMock:
+        pass
+    def __init__(self, title, date, url):
+        self.title = title 
+        self.updated_parsed = date 
+        self.description = 'unused'
+        enclosure = ItemMock.EnclosureMock()
+        enclosure.type = 'video/mp4'
+        enclosure.href = url
+        self.enclosures = [enclosure]
+
 class VodcastFeedDownloaderTest(unittest.TestCase):
     
     def setUp(self):
@@ -129,17 +141,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         vodcast_download_manager.downloader = downloader
 
         vodcast_download_manager.download_all_newer(as_local_datetime(datetime(2010, 10, 27, 0, 0, 0)))
-        class ItemMock:
-            class EnclosureMock:
-                pass
-            def __init__(self, title, date, url):
-                self.title = title 
-                self.updated_parsed = date 
-                self.description = 'unused'
-                enclosure = ItemMock.EnclosureMock()
-                enclosure.type = 'video/mp4'
-                enclosure.href = url
-                self.enclosures = [enclosure]
         self.assertNotIn(Vodcast(ItemMock('Extra 3 one', (2010, 10, 26, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101026-2220-5801.h264.mp4'))
                       , vocast_collector)
         self.assertIn(Vodcast(ItemMock('Extra 3 two', (2010, 10, 27, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101027-2220-5801.h264.mp4'))
@@ -173,6 +174,27 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertEqual(vodcast.updated, datetime(2010, 10, 26, 9, 53, 49))
         berlin = pytz.timezone("Europe/Berlin")
         self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, berlin.localize(datetime(2010, 10, 26, 10, 53, 49))), vodcast.updated)
+
+    def test_should_dete_file_during_exception(self):
+        
+        import tempfile
+        testfile = tempfile.mktemp()
+
+        vodcast_downloader = VodcastDownloader()
+        vodcast = Vodcast(ItemMock('Extra 3 three', (2010, 10, 28, 9, 53, 49), 'http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4'))
+        vodcast.local_filename = testfile
+        
+        def read_throwing_exception(url, filename, hoock):
+            fd = open(filename, 'w')
+            fd.close()
+            self.assertFilePresent(None, filename)
+            raise Exception('test')
+        
+        vodcast_downloader.url_retriever = read_throwing_exception
+        
+        self.assertRaisesRegexp(Exception, 'test' ,vodcast_downloader.download, vodcast)
+        
+        self.assertFileNotPresent(None, testfile)
 
 if __name__ == '__main__':
     import logging

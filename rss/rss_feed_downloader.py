@@ -103,7 +103,16 @@ class VodcastDownloader:
         self.log.debug('downloading [%s] to [%s].', url, target_filename)
         
         download_reporter = DownloadProgressHook(target_filename)
-        self.url_retriever(url, target_filename, download_reporter.report_hook)
+        
+        try:
+            self.url_retriever(url, target_filename, download_reporter.report_hook)
+        except Exception, e:
+            self.__remove_file_if_exists(target_filename, e)
+            raise
+    def __remove_file_if_exists(self, filename, exception):
+        if(os.path.exists(filename)):
+            self.log.warn('removing file [%s] after exception: %s' % (filename, str(exception)))
+            os.unlink(filename)
 
     def should_be_downloaded(self, vodcast, reference_date):
         """
