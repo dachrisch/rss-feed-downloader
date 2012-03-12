@@ -8,6 +8,7 @@ from dateutil.tz import tzlocal
 sys.path.insert(0,os.path.abspath(__file__+"/../.."))
 from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager,\
     Vodcast
+import tempfile
 
 def as_local_datetime(date):
     local_timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
@@ -44,7 +45,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
                             </item></channel></rss>''')
 
     def __create_tempfile(self, content):
-        import tempfile
         testfile = tempfile.NamedTemporaryFile(delete = False)
         testfile.write(content)
         testfile.close()
@@ -72,8 +72,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
     def test_givenUrlPointingToLocalResourceWhenDownloadedThenContentWillBeStored(self):
         entries = self.rss_feed.entries
         vodcast = parse_video_item(entries[0])
-        
-        import tempfile
         
         tempdir = tempfile.mkdtemp()
 
@@ -176,8 +174,6 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertTrue(vodcast_downloader.should_be_downloaded(vodcast, berlin.localize(datetime(2010, 10, 26, 10, 53, 49))), vodcast.updated)
 
     def test_should_dete_file_during_exception(self):
-        
-        import tempfile
         testfile = tempfile.mktemp()
 
         vodcast_downloader = VodcastDownloader()
@@ -195,6 +191,24 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         self.assertRaisesRegexp(Exception, 'test' ,vodcast_downloader.download, vodcast)
         
         self.assertFileNotPresent(None, testfile)
+        
+    def test_create_timestamp_file_if_it_doesnt_exists_and_no_file_was_downloaded(self):
+        from main import main as rss_main
+        import main
+        from optparse import OptionParser
+        import sys
+        def throwing_error(self, msg):
+            raise Exception(msg)
+        main.OptionParser = op = OptionParser
+        op.error = throwing_error
+        download_directory = tempfile.gettempdir()
+        expected_filename = main._create_fetch_info_path(download_directory, 'localhost')
+        try:
+            self.assertFileNotPresent('', expected_filename)
+            rss_main(['-d', download_directory, '-u', 'localhost'])
+            self.assertFilePresent('', expected_filename)
+        finally:
+            os.unlink(expected_filename)
 
 if __name__ == '__main__':
     import logging

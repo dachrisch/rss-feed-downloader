@@ -7,6 +7,7 @@ from dateutil.tz import tzlocal
 import hashlib
 from os import path
 from urlparse import urlparse
+import sys
 
 LAST_FETCHED_FILE_TEMPLATE = '.last_feed_access_%(hostname)s_%(hash)s.timestamp'
 
@@ -22,7 +23,7 @@ def _determineReferenceDate(download_directory, day_offset, identity):
             with open(_create_fetch_info_path(download_directory, identity), 'r') as lastFetched:
                 reference_date = datetime.strptime(lastFetched.read(), '%c')
         except IOError, e:
-            print 'failed to read last updated timestamp. falling back to day_offset: %s' % e
+            logging.getLogger('main').warn('failed to read last updated timestamp. falling back to day_offset: %s' % e)
             day_offset = 7
     if day_offset:
         reference_date = datetime.now()
@@ -56,7 +57,7 @@ def main(args):
                       action="count", dest="verbose",
                       help="print status messages to stdout more verbose")
 
-    (options, args) = parser.parse_args()
+    (options, remaining_args) = parser.parse_args(args)
 
     if not (options.rss_url and options.download_directory):
         parser.error('url and directory are required')
@@ -75,10 +76,8 @@ def main(args):
 
     reference_date = _determineReferenceDate(options.download_directory, options.day_offset, options.rss_url)
     num_updated = vdm.download_all_newer(reference_date)
-    if num_updated > 0:
+    if num_updated > 0 or not path.exists(_create_fetch_info_path(options.download_directory, options.rss_url)):
         _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
 
-
 if __name__ == '__main__':
-    import sys
     main(sys.argv)
