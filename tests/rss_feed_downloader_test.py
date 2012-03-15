@@ -184,12 +184,11 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
             fd = open(filename, 'w')
             fd.close()
             self.assertFilePresent(None, filename)
-            raise Exception('test')
+            raise KeyboardInterrupt
         
         vodcast_downloader.url_retriever = read_throwing_exception
         
-        self.assertRaisesRegexp(Exception, 'test' ,vodcast_downloader.download, vodcast)
-        
+        self.assertRaisesRegexp(Exception, 'User interrupted' ,vodcast_downloader.download, vodcast)
         self.assertFileNotPresent(None, testfile)
         
     def test_create_timestamp_file_if_it_doesnt_exists_and_no_file_was_downloaded(self):

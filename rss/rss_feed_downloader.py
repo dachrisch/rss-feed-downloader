@@ -109,6 +109,10 @@ class VodcastDownloader:
         except Exception, e:
             self.__remove_file_if_exists(target_filename, e)
             raise
+        except KeyboardInterrupt:
+            self.__remove_file_if_exists(target_filename, 'User interrupted')
+            raise Exception('User interrupted')
+
     def __remove_file_if_exists(self, filename, exception):
         if(os.path.exists(filename)):
             self.log.warn('removing file [%s] after exception: %s' % (filename, str(exception)))
