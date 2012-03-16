@@ -6,8 +6,10 @@ import unittest
 import pytz
 from dateutil.tz import tzlocal
 sys.path.insert(0,os.path.abspath(__file__+"/../.."))
-from rss.rss_feed_downloader import parse_video_item, VodcastDownloader, VodcastDownloadManager,\
-    Vodcast
+from rss.rss_feed_downloader import parse_video_item
+from rss.rss_feed_downloader import VodcastDownloader
+from rss.rss_feed_downloader import VodcastDownloadManager
+from rss.rss_feed_downloader import Vodcast
 import tempfile
 
 def as_local_datetime(date):
