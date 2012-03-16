@@ -1,14 +1,13 @@
 import feedparser
 import os
 from datetime import datetime
-from etacalculator import EtaCalculator
 import time
 from calendar import timegm
 from dateutil.tz import tzlocal
 import pytz
 import logging
 from urllib import urlretrieve
-
+from progress import Progress
 LOCAL_TIMEZONE = pytz.timezone(datetime.now(tzlocal()).tzname())
 
 class Vodcast:
@@ -52,7 +51,6 @@ class DownloadProgressHook:
         self.log = logging.getLogger('DownloadProgressHook')
         self.actual = 0
         self.interval = interval
-        self.last_actual_kb = -100
         
     def report_hook(self, block_number, block_size, total_size):
 
@@ -72,21 +70,14 @@ class DownloadProgressHook:
 
     def _start_reporting(self, total):
         self.total = total
-        self.eta_calculator = EtaCalculator(self.total)
+        self.eta_calculator = Progress(self.total, unit = 'kb')
         self.last_report = time.time()
 
     def _log_report(self):
-        percentage_done = self.actual / float(self.total) * 100.0
-        actual_kb = self.actual / 1024
-        total_kb = self.total / 1024
-        speed_kb = actual_kb - self.last_actual_kb
-        download_rate = speed_kb / self.interval
-        seconds_remaining = self.eta_calculator.eta
-        self.log.info('%02.1f%% [%.0f/%.0f kb]. eta %ds (%dkb/s)' % (percentage_done, 
-                                        actual_kb, total_kb, seconds_remaining,
-                                        download_rate))
-        self.last_actual_kb = actual_kb
-
+        self.log.info('%02.1f%% [%.0f/%.0f kb]. eta %ds (%dkb/s)' % (self.eta_calculator.percentage(), 
+                                        self.actual / 1024, self.total / 1024, 
+                                        self.eta_calculator.time_remaining(),
+                                        self.eta_calculator.predicted_rate() / 1024))
 
 class VodcastDownloader:
     def __init__(self, basedir=None, url_retriever = urlretrieve):
