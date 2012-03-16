@@ -97,7 +97,7 @@ class VodcastDownloader:
         
         try:
             self.url_retriever(url, target_filename, download_reporter.report_hook)
-        except Exception, e:
+        except Exception as e:
             self.__remove_file_if_exists(target_filename, e)
             raise
         except KeyboardInterrupt:
