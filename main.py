@@ -7,7 +7,7 @@ import hashlib
 from os import path
 from urlparse import urlparse
 
-LAST_FETCHED_FILE_TEMPLATE = 'last_feed_access_%(hostname)s_%(hash)s.timestamp'
+LAST_FETCHED_FILE_TEMPLATE = '.last_feed_access_%(hostname)s_%(hash)s.timestamp'
 
 def _create_fetch_info_path(base, identity):
     return path.join(base, LAST_FETCHED_FILE_TEMPLATE % {

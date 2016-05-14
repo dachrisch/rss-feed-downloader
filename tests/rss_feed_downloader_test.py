@@ -151,6 +151,23 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
         import hashlib
         self.assertEqual( hashlib.sha224("http://some.domain/rss.xml").hexdigest(), '28dbff3e80675af61e810c911d19ce690d2497a03f64d47f5559199e')
 
+    def test_stripParametersFromUrl(self):
+        items = feedparser.parser('''<?xml version='1.0' encoding='UTF-8'?>
+                            <rss version='2.0'>
+                            <channel>
+                            <title>Extra3</title>
+                            <item>
+                                <title>Extra 3 three</title>
+                                <description>Tatort Taliban; Jasmin trifft: Frau zu Guttenberg</description>
+                                <pubDate>Tue, 28 Oct 2010 11:53:49 +0200</pubDate>
+                                <enclosure url='http://media.ndr.de/download/podcasts/extradrei196/TV-20101028-2220-5801.h264.mp4' type='video/mp4' />
+                                <guid isPermaLink='false'>TV-20101028-2220-5801-V</guid>
+                                <link>http://download.ted.com/talks/AntonyGormley_2012G-480p.mp4?apikey=TEDRSS</link>
+                            </item>
+                            </channel></rss>''')
+        v = Vodcast(items[0])
+        self.assertEqual('AntonyGormley_2012G-480p.mp4', v.local_filename)
+
 if __name__ == '__main__':
     import logging
     logging.basicConfig(filename = 'test_debug.log', level=logging.DEBUG)
