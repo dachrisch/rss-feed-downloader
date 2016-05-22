@@ -9,7 +9,7 @@ import logging
 from urllib import urlretrieve
 from urlparse import urlparse
 from progress import Progress
-LOCAL_TIMEZONE = pytz.timezone(datetime.now(tzlocal()).tzname())
+LOCAL_TIMEZONE = pytz.timezone('Europe/Berlin')
 
 class Vodcast:
     def __init__(self, item):

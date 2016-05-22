@@ -13,7 +13,7 @@ from rss.rss_feed_downloader import Vodcast
 import tempfile
 
 def as_local_datetime(date):
-    local_timezone = pytz.timezone(datetime.now(tzlocal()).tzname())
+    local_timezone = pytz.timezone('Europe/Berlin')
     return local_timezone.localize(date)
 
 class ItemMock:
@@ -74,10 +74,11 @@ class VodcastFeedDownloaderTest(unittest.TestCase):
     def test_givenVideoUrlWithParametersWhenGeneratingLocalFileThenParametersAreStriped(self):
         entry = type('Entry', (object,), {}) 
         entry.title = 'test_givenVideoUrlWithParametersWhenGeneratingLocalFileThenParametersAreStriped'
-        entry.enclosures = (type('Entry', (object,), {})  , )
+        entry.enclosures = (type('Enclosure', (object,), {})  , )
         entry.enclosures[0].type = 'video/mp4'
         entry.enclosures[0].href = 'TV-20101023-2220-5801.h264.mp4?should_be_removed'
         entry.updated_parsed = (2010, 10, 26, 10, 53, 49, 0, 0, 0)
+        entry.description = 'for test only'
         vodcast = parse_video_item(entry)
 
         self.assertEqual(vodcast.local_filename, 'TV-20101023-2220-5801.h264.mp4')
