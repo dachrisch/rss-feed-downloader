@@ -6,6 +6,7 @@ from etacalculator import EtaCalculator
 import time
 import logging
 from urllib import urlretrieve
+from urlparse import urlparse
 
 class Vodcast:
     def __init__(self, item):
@@ -26,7 +27,7 @@ class Vodcast:
         raise Exception('cannot parse url from enclosure [%s]. unknown type: %s' % (video, video.type))
 
     def _generate_local_filename(self, link):
-        return os.path.basename(link)
+        return os.path.basename(urlparse(link).path)
 
     def __str__(self):
         return '%s(name=%s, url=%s, updated=%s)' % (self.__class__, self.local_filename, self.url, self.updated)
