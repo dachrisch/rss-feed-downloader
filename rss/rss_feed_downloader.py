@@ -1,12 +1,15 @@
 import feedparser
 import os
-from threading import Thread, Event
 from datetime import datetime
-from etacalculator import EtaCalculator
 import time
+from calendar import timegm
+from dateutil.tz import tzlocal
+import pytz
 import logging
 from urllib import urlretrieve
 from urlparse import urlparse
+from progress import Progress
+LOCAL_TIMEZONE = pytz.timezone(datetime.now(tzlocal()).tzname())
 
 class Vodcast:
     def __init__(self, item):
@@ -14,7 +17,9 @@ class Vodcast:
         self.url = self._parse_video_url(item.enclosures)
         self.local_filename = self._generate_local_filename(self.url)
 
-        self.updated = datetime.fromtimestamp(time.mktime(item.updated_parsed))
+        self.updated = datetime.utcfromtimestamp(timegm(item.updated_parsed))
+        
+        self.description = item.description
 
         self._underlying_item = item
 
@@ -24,6 +29,8 @@ class Vodcast:
             return video.href
         if 'video/mpeg' == video.type:
             return video.href
+        if 'video/x-mp4' == video.type:
+            return video.href
         raise Exception('cannot parse url from enclosure [%s]. unknown type: %s' % (video, video.type))
 
     def _generate_local_filename(self, link):
@@ -31,29 +38,32 @@ class Vodcast:
 
     def __str__(self):
         return '%s(name=%s, url=%s, updated=%s)' % (self.__class__, self.local_filename, self.url, self.updated)
+    def __repr__(self):
+        return str(self)
+    def __eq__(self, other):
+        same = True
+        same &= self.title == other.title
+        same &= self.url == other.url
+        same &= self.updated == other.updated
+        return same
 
-
-class DownloadProgressThread(Thread):
+class DownloadProgressHook:
     def __init__(self, name, interval=1, *args, **kwargs):
-        Thread.__init__(self, name=name, *args, **kwargs)
-        self.log = logging.getLogger('DownloadProgressThread')
+        self.log = logging.getLogger('DownloadProgressHook')
         self.actual = 0
-        self.should_finish = Event()
         self.interval = interval
-        self.last_actual_kb = -100
         
-    def report_hook_test(self, block_number, block_size, total_size):
+    def report_hook(self, block_number, block_size, total_size):
 
             if block_number:
                 self._eat(block_size)
-                self._stop_if_saturated()
             else:
                 self._start_reporting(total_size)
                 
-    def _stop_if_saturated(self):
-        if self.actual >= self.total:
-            self._stop_reporting()
-
+            if time.time() - self.last_report > self.interval:
+                self._log_report()
+                self.last_report = time.time()
+                
     def _eat(self, count):
         self.log.debug('eating %d bytes [%d/%d]' % (count, self.actual, self.total))
         self.actual += count
@@ -61,35 +71,21 @@ class DownloadProgressThread(Thread):
 
     def _start_reporting(self, total):
         self.total = total
-        self.should_finish.clear()
-        self.eta_calculator = EtaCalculator(self.total)
-        self.start()
-
-    def _stop_reporting(self):
-        self.should_finish.set()
-
-    def run(self):
-        while not self.should_finish.is_set():
-            self._log_report()
-            self.should_finish.wait(self.interval)
+        self.eta_calculator = Progress(self.total, unit = 'kb')
+        self.last_report = time.time()
 
     def _log_report(self):
-        percentage_done = self.actual / float(self.total) * 100.0
-        actual_kb = self.actual / 1024
-        total_kb = self.total / 1024
-        speed_kb = actual_kb - self.last_actual_kb
-        download_rate = speed_kb / self.interval
-        seconds_remaining = self.eta_calculator.eta
-        self.log.info('%02.1f%% [%.0f/%.0f kb]. eta %ds (%dkb/s)' % (percentage_done, 
-                                        actual_kb, total_kb, seconds_remaining,
-                                        download_rate))
-        self.last_actual_kb = actual_kb
-
+        self.log.info('%02.1f%% [%.0f/%.0f kb]. eta %ds (%dkb/s)' % (self.eta_calculator.percentage(), 
+                                        self.actual / 1024, self.total / 1024, 
+                                        self.eta_calculator.time_remaining(),
+                                        self.eta_calculator.predicted_rate() / 1024))
 
 class VodcastDownloader:
-    def __init__(self, basedir=None):
+    def __init__(self, basedir=None, url_retriever = urlretrieve):
         self.basedir = basedir
         self.log = logging.getLogger('VodcastDownloader')
+        self.report_log = logging.getLogger('report')
+        self.url_retriever = url_retriever
 
     def __copy_stream_to_target(self, url, target_filename):
         if(os.path.exists(target_filename)):
@@ -98,12 +94,32 @@ class VodcastDownloader:
 
         self.log.debug('downloading [%s] to [%s].', url, target_filename)
         
-        download_reporter = DownloadProgressThread(target_filename)
-        urlretrieve(url, target_filename, download_reporter.report_hook_test)
+        download_reporter = DownloadProgressHook(target_filename)
+        
+        try:
+            self.url_retriever(url, target_filename, download_reporter.report_hook)
+        except Exception as e:
+            self.__remove_file_if_exists(target_filename, e)
+            raise
+        except KeyboardInterrupt:
+            self.__remove_file_if_exists(target_filename, 'User interrupted')
+            raise Exception('User interrupted')
+
+    def __remove_file_if_exists(self, filename, exception):
+        if(os.path.exists(filename)):
+            self.log.warn('removing file [%s] after exception: %s' % (filename, str(exception)))
+            os.unlink(filename)
 
     def should_be_downloaded(self, vodcast, reference_date):
-        self.log.debug('checking if [%s] should be downloaded (> %s): %s', vodcast, reference_date, vodcast.updated > reference_date)
-        return vodcast.updated > reference_date
+        """
+        check if a vodcast should be downloaded with respect to a reference date. 
+        
+        Vodcast dates are assumed to be in UTC (see feedparser._parse_rfc822_date), whereas reference_data is assumed to be in local time
+        """
+        local_vodcast_date = pytz.utc.localize(vodcast.updated).astimezone(LOCAL_TIMEZONE)
+        local_reference_date = reference_date
+        self.log.debug('checking if [%s] should be downloaded (%s > %s): %s (in timezone [%s])', vodcast, local_vodcast_date, local_reference_date, local_vodcast_date > local_reference_date, LOCAL_TIMEZONE)
+        return local_vodcast_date > local_reference_date
 
     def _create_target_filename(self, vodcast):
         target_filename = os.path.join(self.basedir, vodcast.local_filename)
@@ -111,6 +127,8 @@ class VodcastDownloader:
 
     def download(self, vodcast):
         target_filename = self._create_target_filename(vodcast)
+        vodcast.target_filename = target_filename
+        self.report_log.info('%(target_filename)s(%(updated)s) - %(url)s - %(description)s' % vodcast.__dict__)
         self.__copy_stream_to_target(vodcast.url, target_filename)
         return target_filename
 
@@ -118,7 +136,7 @@ class VodcastDownloader:
 class VodcastDownloadManager:
     def __init__(self, rss_feed_or_url, download_dir, threads=1):
         self.downloader = VodcastDownloader(download_dir)
-        self.log = logging.getLogger('VodcastDownloader')
+        self.log = logging.getLogger('DownloadManager')
         self.threads = threads
 
         self.vodcasts = []
@@ -146,6 +164,7 @@ class VodcastDownloadManager:
             self.downloader.download(vodcast_to_download)
             counter += 1
         self.log.info('downloaded [%d] vodcasts' % counter)
+        return counter
 
 
 def parse_video_item(item):

@@ -1,11 +1,13 @@
 import logging
 import logging.config
 from optparse import OptionParser
-from rss.rss_feed_downloader import VodcastDownloadManager
+from rss.rss_feed_downloader import VodcastDownloadManager, LOCAL_TIMEZONE
 from datetime import datetime, timedelta
+from dateutil.tz import tzlocal
 import hashlib
 from os import path
 from urlparse import urlparse
+import sys
 
 LAST_FETCHED_FILE_TEMPLATE = '.last_feed_access_%(hostname)s_%(hash)s.timestamp'
 
@@ -21,17 +23,17 @@ def _determineReferenceDate(download_directory, day_offset, identity):
             with open(_create_fetch_info_path(download_directory, identity), 'r') as lastFetched:
                 reference_date = datetime.strptime(lastFetched.read(), '%c')
         except IOError, e:
-            print 'failed to read last updated timestamp. falling back to day_offset: %s' % e
+            logging.getLogger('main').warn('failed to read last updated timestamp. falling back to day_offset: %s' % e)
             day_offset = 7
     if day_offset:
         reference_date = datetime.now()
         reference_date -= timedelta(days=day_offset)
             
-    return reference_date
+    return LOCAL_TIMEZONE.localize(reference_date)
 
 def _saveLastFetchedTimestamp(download_directory, identity):
     with open(_create_fetch_info_path(download_directory, identity), 'w') as lastFetched:
-        lastFetched.write(datetime.strftime(datetime.now(), '%c'))
+        lastFetched.write(datetime.strftime(datetime.now(tzlocal()), '%c'))
         
 def _checked_load_logging_config(config_path):
     expanded_config_path = path.expanduser(config_path)
@@ -55,7 +57,7 @@ def main(args):
                       action="count", dest="verbose",
                       help="print status messages to stdout more verbose")
 
-    (options, args) = parser.parse_args()
+    (options, remaining_args) = parser.parse_args(args)
 
     if not (options.rss_url and options.download_directory):
         parser.error('url and directory are required')
@@ -73,10 +75,9 @@ def main(args):
     vdm = VodcastDownloadManager(options.rss_url, options.download_directory, options.threads)
 
     reference_date = _determineReferenceDate(options.download_directory, options.day_offset, options.rss_url)
-    vdm.download_all_newer(reference_date)
-    _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
-
+    num_updated = vdm.download_all_newer(reference_date)
+    if num_updated > 0 or not path.exists(_create_fetch_info_path(options.download_directory, options.rss_url)):
+        _saveLastFetchedTimestamp(options.download_directory, options.rss_url)
 
 if __name__ == '__main__':
-    import sys
     main(sys.argv)

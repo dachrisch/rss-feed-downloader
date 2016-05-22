@@ -1,1 +1,4 @@
 feedparser
+pytz
+dateutils
+nose
