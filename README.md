@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/dachrisch/rss-feed-downloader.svg?maxAge=2592000)](https://travis-ci.org/dachrisch/rss-feed-downloader)
+
 RSS Feed Downloader
 ===================
 
@@ -18,12 +20,6 @@ python main.py [options]
       -t THREADS, --threads=THREADS
                             how many THREADS to use for download
       -v, --verbose         print status messages to stdout more verbose
-
-continuous integration
-----------------------
-[![Travis](https://img.shields.io/travis/dachrisch/rss-feed-downloader.svg?maxAge=2592000)](https://travis-ci.org/dachrisch/rss-feed-downloader)
-
-CI provided by http://travis-ci.org/
 
 requirements
 ------------
