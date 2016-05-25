@@ -21,7 +21,7 @@ python main.py [options]
 
 continuous integration
 ----------------------
-[![Build Status](https://secure.travis-ci.org/dachrisch/rss-feed-downloader.png?branch=master)](http://travis-ci.org/dachrisch/rss-feed-downloader)
+[![Travis](https://img.shields.io/travis/dachrisch/rss-feed-downloader.svg?maxAge=2592000)](https://travis-ci.org/dachrisch/rss-feed-downloader)
 
 CI provided by http://travis-ci.org/
 
