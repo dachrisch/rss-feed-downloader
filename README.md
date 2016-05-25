@@ -1,5 +1,5 @@
 [![Travis](https://img.shields.io/travis/dachrisch/rss-feed-downloader.svg?maxAge=2592000)](https://travis-ci.org/dachrisch/rss-feed-downloader)
-
+[![Codecov](https://img.shields.io/codecov/c/github/dachrisch/rss-feed-downloader.svg?maxAge=2592000)](https://codecov.io/gh/dachrisch/rss-feed-downloader/)
 RSS Feed Downloader
 ===================
 
