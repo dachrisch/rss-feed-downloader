@@ -2,5 +2,9 @@ language: python
 python:
   - "2.7"
 script:
-  - nosetests 
-
+  - coverage run tests/rss_feed_downloader_test.py
+install:
+  - pip install -r requirements.txt
+  - pip install codecov
+after_success:
+  - codecov
